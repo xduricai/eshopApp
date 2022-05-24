@@ -1,0 +1,58 @@
+.page{
+    padding-top: 3%;
+    padding-left: 10%;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.payment{
+    margin-left: 4%;
+    height: 7%;
+}
+
+.orders{
+    border-style: solid;
+    border-color: silver;
+    padding: 6px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 40%;
+}
+
+.updatebtn{
+    margin-top: 2%;
+    margin-left: 10px;
+    height: 50%;
+}
+
+h3{
+    margin-right: auto;
+}
+
+table{
+    width: 100%;
+}
+
+tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: last baseline;
+    width: 95%;
+}
+
+td{
+    margin-right: 12%;
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+}
+
+mat-form-field{
+    padding: 10px;
+}

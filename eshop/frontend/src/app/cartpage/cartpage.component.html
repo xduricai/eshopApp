@@ -1,0 +1,71 @@
+<div class="page">
+    
+    <form [formGroup]="userInfo">
+        <h3> Total Order Cost: {{cart.totalCost()}} € </h3>
+        <h3> Enter your contact information to proceed. </h3>
+
+        <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+
+        <mat-error *ngIf="email != null && email.invalid && email.touched">
+            Invalid Email
+        </mat-error>
+
+        <mat-form-field>
+            <input matInput placeholder="Full Name" formControlName="name">
+        </mat-form-field>
+
+        <mat-error *ngIf="name != null && name.invalid && name.touched">
+            Invalid Name Format
+        </mat-error>
+
+        <mat-form-field>
+            <input matInput placeholder="Street Name" formControlName="street">
+        </mat-form-field>
+
+        <mat-error *ngIf="street != null && street.invalid && street.touched">
+            Invalid Street Name
+        </mat-error>
+
+        <mat-form-field>
+            <input matInput placeholder="Street Number" formControlName="streetnum">
+        </mat-form-field>
+
+        <mat-error *ngIf="streetnum != null && streetnum.invalid && streetnum.touched">
+            Invalid Street Number
+        </mat-error>
+
+        <mat-form-field>
+            <input matInput placeholder="City" formControlName="city">
+        </mat-form-field>
+
+        <mat-error *ngIf="city != null && city.invalid && city.touched">
+            Invalid City Name
+        </mat-error>
+
+        
+        <mat-form-field>
+            <input matInput placeholder="Postcode" formControlName="pcode">
+        </mat-form-field>
+
+        <mat-error *ngIf="pcode != null && pcode.invalid && pcode.touched">
+            Invalid Postcode
+        </mat-error>
+    
+        <div class="buttons">
+            <button mat-raised-button (click)="cart.emptyCart()">
+                Cancel Order
+            </button>
+
+            <button mat-raised-button [disabled]="userInfo.invalid || cart.totalCost() == 0" (click)="submitInfo()">
+                Confirm Order
+            </button>
+
+            <mat-error *ngIf="cart.totalCost() == 0">
+                Your cart is empty
+            </mat-error>
+        </div>
+
+    </form>
+</div>

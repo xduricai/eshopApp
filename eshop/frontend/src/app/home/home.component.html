@@ -1,0 +1,37 @@
+<div class="top" *ngIf="cart.cart_count > 0">
+    <h3 style="margin-top: 6px;">Items in Cart: {{cart.cart_count}}</h3>    
+    <a routerLink="/cart"> 
+        <button class="checkout">
+                Checkout
+        </button>
+    </a>
+</div>
+
+<div class="top" *ngIf="cart.cart_count <= 0">
+    <h3 style="margin-top: 6px;">Items in Cart: {{cart.cart_count}}</h3>
+    <a>    
+        <button [disabled]="true" class="checkout">
+                Cart is Empty
+        </button>
+    </a>    
+</div>
+
+<div class="page">  
+    <div class="item" *ngFor="let product of products.products">
+        <img src = '{{ product.image }}'>
+        <h3>{{ product.name }}</h3>
+        <h3> Price: {{ product.price }} €</h3>
+        
+        <div *ngIf="product.quantity > 0">
+            <button class="add" (click) = "cart.addToCart(product)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div *ngIf="product.quantity <= 0">
+            <button [disabled]="true" class="add">
+                Out of Stock
+            </button>
+        </div>
+    </div>
+</div>  

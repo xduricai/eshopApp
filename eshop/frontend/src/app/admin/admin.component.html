@@ -1,0 +1,46 @@
+<div class="page">
+    <h1> Admin Interface </h1>
+    <br>
+    <h2>Current counter: {{ad.counter}}</h2>
+    <h2>Orders:</h2>
+
+    <div class="orders" *ngFor="let order of orders">
+        <div class="top">
+            <h3> Order number: {{order.id}} </h3>
+            <h3 *ngIf="order.paid"> Order Status: Payment Received</h3>
+            <h3 *ngIf="!order.paid"> Order Status: Payment Pending</h3>
+            <button class="payment" [disabled]="order.paid" (click)="payOrder(order.id)"> Confirm Payment </button>
+        </div>
+
+        <table *ngFor="let product of products">
+            <tr *ngIf="product.order_id == order.id">
+                <td> Product ID: {{product.id}} </td>
+                <td> Product Name: {{product.product_type}} </td>
+            </tr>
+        </table>
+    </div>
+
+    <form class="update" [formGroup]="adForm">
+        <mat-form-field>
+            <input matInput placeholder="Advertisment Image" formControlName="image">
+        </mat-form-field>
+
+        <mat-error *ngIf="image != null && image.invalid && image.touched">
+            Invalid Image 
+        </mat-error>
+
+        <mat-form-field>
+            <input matInput placeholder="Advertisment URL" formControlName="link">
+        </mat-form-field>
+
+        <mat-error *ngIf="link != null && link.invalid && link.touched">
+            Invalid URL
+        </mat-error>
+    
+        <button class="updatebtn" [disabled]="adForm.invalid" (click)="updateAdvert()">
+            Update Advertisment
+        </button>
+
+
+    </form>
+</div>
