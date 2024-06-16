@@ -1,8 +1,8 @@
 # Eshop App
 
-FE: Angular  
-BE: Express + node.js  
-DB: mySQL  
+- FE: Angular  
+- BE: Express + node.js  
+- DB: mySQL  
 
 ## Setup:
 open `./backend` in terminal (runs on port 8080):
